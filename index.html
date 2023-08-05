@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>GuessTheNumber Game</title>
+   </head>
+   <body>
+      <h1>'Guess the Number' Game</h1>
+      <input type="number" name="" id="input" />
+      <p id="result"></p>
+      <p>Chances left: <span id="chances"></span></p>
+      <button id="retry">Retry</button>
+
+      <script>
+         let targetNumber;
+         let chances;
+         const _result = document.getElementById("result");
+         const _input = document.getElementById("input");
+         const _chances = document.getElementById("chances");
+         document.getElementById("retry").addEventListener("click", resetGame);
+         resetGame();
+
+         function playGame() {
+            if (this.value == targetNumber) showResult("WIN");
+            else if (chances == 1) showResult("LOSE"); //it was the last chance and the number is wrong.
+            else _result.textContent = this.value < targetNumber ? "enter a greater number" : "enter a smaller number";
+            chances--;
+            _chances.textContent = chances;
+         }
+
+         function resetGame() {
+            chances = 10;
+            _chances.textContent = chances;
+            _result.textContent = "Guess the Number! its between 50 to 99.";
+            _input.addEventListener("blur", playGame);
+            targetNumber = Math.floor(Math.random() * 50) + 50; // return a random number between 50 and 99
+            console.log(targetNumber); // for testing purposes :)
+         }
+
+         function showResult(result) {
+            _result.textContent = `you ${result}, the number is: ${targetNumber}`;
+            _input.removeEventListener("blur", playGame);
+         }
+      </script>
+   </body>
+</html>
