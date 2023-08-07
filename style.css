@@ -1,0 +1,120 @@
+@font-face {
+   font-family: seven-segment;
+   src: url(fonts/DSEG7ModernMini-BoldItalic.woff);
+}
+
+body {
+   background-color: #000;
+   color: #fff;
+}
+
+article {
+   margin: 50px auto;
+   width: 500px;
+   box-shadow: 0 0 5px #fff8;
+   padding: 20px;
+   border-radius: 20px;
+   background-color: #222;
+   text-align: center;
+   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+header {
+   margin-bottom: 50px;
+   font-size: 30px;
+}
+
+input {
+   font-family: seven-segment, "Courier New", Courier, monospace;
+   font-size: 30px;
+   padding: 10px;
+   outline: 0;
+   border: 0;
+   width: 120px;
+   border-radius: 10px;
+   background-color: #000;
+   color: #ddd;
+   text-align: center;
+}
+
+input:disabled {
+   background-color: transparent;
+}
+
+.guess {
+   position: relative;
+   transition: opacity 0.5s;
+}
+
+.guess span {
+   font-size: 12px;
+   position: absolute;
+   bottom: -20px;
+   width: 100%;
+}
+
+.flex {
+   display: flex;
+   justify-content: center;
+   gap: 10px 20px;
+}
+
+.col {
+   flex-direction: column;
+}
+
+span#result {
+   display: inline-block;
+   margin: 60px 0;
+   padding: 5px 10px;
+   border-radius: 10px;
+}
+
+span#result.green {
+   background-color: green;
+}
+
+span#result.red {
+   background-color: red;
+}
+
+footer.flex {
+   justify-content: space-between;
+}
+
+button {
+   padding: 0 20px;
+   border-radius: 15px;
+   cursor: pointer;
+   font-weight: 700;
+   font-size: 20px;
+   background-color: #aaa;
+}
+
+button:hover {
+   background-color: #ddd;
+}
+
+.chances {
+   opacity: 1;
+   transition: opacity 0.5s;
+}
+
+span#chances {
+   display: inline-block;
+   margin-left: 10px;
+   background-color: #000;
+   padding: 7px;
+   border-radius: 10px;
+   transform: scale(1);
+   transition: all 0.2s;
+}
+
+span#chances.flash {
+   transform: scale(1.4);
+   background-color: #fff;
+}
+
+.hidden {
+   opacity: 0;
+}
